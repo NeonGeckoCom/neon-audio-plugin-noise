@@ -18,8 +18,7 @@
 # SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
 # USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-from ovos_plugin_manager.templates.audio_transformer import AudioTransformer
+from neon_transformers import AudioTransformer
 import audioop
 from math import log10
 
@@ -44,7 +43,7 @@ class BackgroundNoise(AudioTransformer):
         decibel = 20 * log10(rms)
         return decibel
 
-    def on_speech_end(self, audio_data):
+    def transform(self, audio_data):
         return audio_data, {"noise_level": self.noise_level()}
 
 
