@@ -7,7 +7,7 @@ setup(
     name='neon_audio_noise_plugin',
     version='0.0.1',
     description='A audio parser/classifier/transformer plugin for ovos/neon/mycroft',
-    url='https://github.com/NeonGeckoCom/neon_noise_level_plugin',
+    url='https://github.com/NeonGeckoCom/neon_audio_noise_plugin',
     author='JarbasAi',
     author_email='jarbasai@mailfence.com',
     license='bsd3',
