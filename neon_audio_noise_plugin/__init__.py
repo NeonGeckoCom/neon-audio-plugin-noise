@@ -21,9 +21,12 @@
 from neon_transformers import AudioTransformer
 import audioop
 from math import log10
+from neon_transformers.tasks import AudioTask
 
 
 class BackgroundNoise(AudioTransformer):
+    task = AudioTask.REMOVE_NOISE
+
     def __init__(self, config=None):
         super().__init__("background_noise", 10, config)
 
