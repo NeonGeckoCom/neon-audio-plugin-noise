@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from setuptools import setup
 
-
 PLUGIN_ENTRY_POINT = 'neon_audio_noise_plugin=neon_audio_noise_plugin:BackgroundNoise'
 setup(
     name='neon_audio_noise_plugin',
@@ -13,6 +12,8 @@ setup(
     license='bsd3',
     packages=['neon_audio_noise_plugin'],
     zip_safe=True,
+    install_requires=["ovos-plugin-manager~=0.0.3a5",
+                      "neon_transformers"],
     keywords='mycroft plugin audio parser/classifier/transformer',
     entry_points={'neon.plugin.audio': PLUGIN_ENTRY_POINT}
 )
