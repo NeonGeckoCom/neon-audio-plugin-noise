@@ -36,7 +36,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements/requirements.txt
           pip install -r requirements/test_requirements.txt
-      - name: Test simpleNER transform
+      - name: Test  transform
         run: |
           pytest tests/test_transform.py --doctest-modules --junitxml=tests/test-transform-results.xml
       - name: Upload test transform results

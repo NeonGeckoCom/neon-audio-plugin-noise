@@ -34,14 +34,22 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from neon_audio_noise_plugin import *
 
 
-class KeyBertExtractTests(unittest.TestCase):
+class NoisePluginTransformTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.extractor = BackgroundNoise()
 
     def test_transform(self):
-            text = ["/home/dmytro/Documents/GitHub/neon-audio-plugin-noise/audiocheck.net_whitenoise.wav"]
-            lang = self.extractor.transform(text)
-            self.assertEqual(lang, ((['/home/dmytro/Documents/GitHub/neon-audio-plugin-noise/audiocheck.net_whitenoise.wav'],
- {'noise_level': 0}))
-                             )
+        import pydub
+        from pydub import AudioSegment
+        from pathlib import Path
+        from speech_recognition import AudioData
+        current=Path.cwd()
+        path = str(current) + '/where is pandora store.wav'
+        print(path)
+        segment = AudioSegment.from_file(path)
+        audio_data = AudioData(segment.raw_data, segment.frame_rate,segment.sample_width)
+        audio, context = self.extractor.transform(audio_data)
+        print(context)
+        #print(type(test))
+        self.assertIsInstance(context['noise_level'],int)
