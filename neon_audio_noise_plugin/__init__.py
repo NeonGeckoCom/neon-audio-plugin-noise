@@ -52,4 +52,3 @@ class BackgroundNoise(AudioTransformer):
 
 def create_module(config=None):
     return BackgroundNoise(config=config)
-
