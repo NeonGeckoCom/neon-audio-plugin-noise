@@ -40,7 +40,6 @@ class NoisePluginTransformTests(unittest.TestCase):
         cls.extractor = BackgroundNoise()
 
     def test_transform(self):
-        import pydub
         from pydub import AudioSegment
         from pathlib import Path
         from speech_recognition import AudioData
